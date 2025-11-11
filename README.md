@@ -17,7 +17,7 @@ If a book has zero copies, the program should immediately jump to a special hand
 This problem is small, clear, and demonstrates exactly how PL/SQL records, collections, and GOTO can work together in a practical scenario.
 
 ## 2. Demonstartion
-1. Define a **Record Type**
+### 1. Define a **Record Type**
 ```sql
 TYPE book_rec IS  RECORD ( 
 book_id NUMBER, 
@@ -34,7 +34,7 @@ copies NUMBER
         
 * `copies` → how many copies are available
 
-2. Define a **Collection Type**
+### 2. Define a **Collection Type**
 ```sql  
 TYPE book_table IS  TABLE  OF  book_rec; 
 books book_table :=  book_table();
@@ -43,7 +43,7 @@ books book_table :=  book_table();
     
 * `books` is the variable we’ll use to store all our book records.
 
-3. Add Sample Data
+### 3. Add Sample Data
 ```sql  
 books.EXTEND(3);
 
@@ -58,7 +58,7 @@ books(3).book_id := 3; books(3).title := 'Algorithms'; books(3).copies := 2;
     
 * Notice book 2 has `copies = 0` (this will trigger our GOTO).
 
-4. Process the Collection
+### 4. Process the Collection
 
 ```sql  
 FOR  i IN  1..books.COUNT LOOP IF books(i).copies =  0  THEN  
@@ -82,9 +82,9 @@ If a book has no copies, jump to the label `OUT_OF_STOCK`.
 
 ## 3. Implementation
 
-img
-
-img
+![Demo Screenshot](https://github.com/iradukundafirmin/plsql_records_collect_goto_demo_iradukunda_firmin/blob/main/Records_collection%20screenshots.JPG?raw=true)
+### Output
+![Demo Screenshot](https://github.com/iradukundafirmin/plsql_records_collect_goto_demo_iradukunda_firmin/blob/main/Records_collection%20screenshots%202.JPG?raw=true])
 
 ## 4. Conclusion
 
