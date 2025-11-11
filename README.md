@@ -26,8 +26,6 @@ copies NUMBER
 );
 ```
     
-** Here, each book has ** :
-    
 * `book_id` → unique identifier
         
 * `title` → book name
